@@ -1,0 +1,44 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":null,"items":[{"name":"csharp","languageName":"C#","aliases":["c#","cs"]},{"name":"fsharp","languageName":"F#","aliases":["f#","fs"]},{"name":"pwsh","languageName":"PowerShell","aliases":["powershell"]},{"name":"javascript","languageName":"JavaScript","aliases":["js"]},{"name":"html","languageName":"HTML"},{"name":"sql","languageName":"SQL"},{"name":"kql","languageName":"KQL"},{"name":"mermaid","languageName":"Mermaid"},{"name":"httpRequest","languageName":"http"},{"name":"value"}]}}
+
+#!csharp
+
+// This script should be runned by jupyter or ployglot notebook
+
+#!csharp
+
+// Part 1
+using System.IO;
+
+string path = "../data.txt";
+var lines = File.ReadLines(path);
+List<uint> calories = new(lines.Count());
+
+uint elfCalory = 0u;
+foreach (string line in lines)
+{
+    if (string.IsNullOrEmpty(line))
+    {
+        calories.Add(elfCalory);
+        elfCalory = 0u;
+        continue;
+    }
+
+    elfCalory += uint.Parse(line);
+}
+
+var max = calories.Max();
+Console.WriteLine("Highest total calory");
+Console.WriteLine($"{nameof(max)}: {max}");
+
+#!csharp
+
+// Part 2
+
+calories.Sort();
+calories.Reverse();
+
+var maxSum = calories[0] + calories[1] + calories[2];
+Console.WriteLine("Top 3 total calories");
+Console.WriteLine($"{nameof(maxSum)}: {maxSum}");
