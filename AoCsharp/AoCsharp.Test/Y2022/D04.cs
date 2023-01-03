@@ -1,8 +1,5 @@
 ﻿namespace AoCsharp.Test.Y2022;
 
-/// <summary>
-/// Day 2 Revisited.
-/// </summary>
 [TestClass]
 public class D04
 {
