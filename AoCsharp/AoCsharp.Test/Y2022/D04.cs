@@ -20,31 +20,73 @@ public class D04
             2-6,4-8
             """;
 
+        int count = 0;
         var lines = input.Split(Environment.NewLine);
         foreach (string line in lines)
         {
+            var split = line.Split(',');
+            var leftToken = split.First().Split('-').Select(x => int.Parse(x));
+            var rightToken = split.Last().Split('-').Select(x => int.Parse(x));
+            var leftElf = Enumerable.Range(leftToken.First(), leftToken.Last() - leftToken.First() + 1);
+            var rightElf = Enumerable.Range(rightToken.First(), rightToken.Last() - rightToken.First() + 1);
 
+            var intersect = leftElf.Intersect(rightElf);
+            if (!intersect.Any()) continue;
+
+            if (intersect.SequenceEqual(leftElf)) count++;
+            else if (intersect.SequenceEqual(rightElf)) count++;
         }
 
-
+        Console.WriteLine("Total assignment pairs");
+        Console.WriteLine($"{nameof(count)}: {count}");
     }
 
     [TestMethod]
     public void Part1()
     {
+        int count = 0;
         var lines = File.ReadLines(D04.InputPath);
+        foreach (string line in lines)
+        {
+            var split = line.Split(',');
+            var leftToken = split.First().Split('-').Select(x => int.Parse(x));
+            var rightToken = split.Last().Split('-').Select(x => int.Parse(x));
+            var leftElf = Enumerable.Range(leftToken.First(), leftToken.Last() - leftToken.First() + 1);
+            var rightElf = Enumerable.Range(rightToken.First(), rightToken.Last() - rightToken.First() + 1);
 
+            var intersect = leftElf.Intersect(rightElf);
+            if (!intersect.Any()) continue;
 
-        
-        int number = 0;
+            if (intersect.SequenceEqual(leftElf)) count++;
+            else if (intersect.SequenceEqual(rightElf)) count++;
+        }
 
-        Console.WriteLine("Expected total score");
-        Console.WriteLine($"{nameof(number)}: {number}");
+        Console.WriteLine("Total assignment pairs");
+        Console.WriteLine($"{nameof(count)}: {count}");
+
+        Check.IsCorrectAnswer(count, "aaf01d71b55e51b1a3051cbb3cdc0646578dcda722b2922072a81f257b1a9821");
     }
 
     [TestMethod]
     public void Part2()
     {
-        
+        int count = 0;
+        var lines = File.ReadLines(D04.InputPath);
+        foreach (string line in lines)
+        {
+            var split = line.Split(',');
+            var leftToken = split.First().Split('-').Select(x => int.Parse(x));
+            var rightToken = split.Last().Split('-').Select(x => int.Parse(x));
+            var leftElf = Enumerable.Range(leftToken.First(), leftToken.Last() - leftToken.First() + 1);
+            var rightElf = Enumerable.Range(rightToken.First(), rightToken.Last() - rightToken.First() + 1);
+
+            var intersect = leftElf.Intersect(rightElf);
+            if (intersect.Any()) count++;
+        }
+
+        Console.WriteLine("Total assignment pairs with overlap");
+        Console.WriteLine($"{nameof(count)}: {count}");
+
+        Check.IsCorrectAnswer(count, "929f003731a97f915d11893c6652bbc7db0b36118eb4357cc721f7f68aeb25ff");
     }
 }
