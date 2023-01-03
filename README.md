@@ -1,4 +1,4 @@
-# AOC
+# AoC
 
  My aoc journey with https://adventofcode.com
 
