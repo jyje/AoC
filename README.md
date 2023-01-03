@@ -6,4 +6,5 @@
 
 ## From My Stacks
 - .NET/C#: [AoCharp](https://github.com/jyje/AoC/tree/main/AoCsharp)
-- 
+- C++: TBA
+- Python: TBA
