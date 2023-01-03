@@ -8,3 +8,7 @@
 - .NET/C#: [AoCharp](https://github.com/jyje/AoC/tree/main/AoCsharp)
 - C++: TBA
 - Python: TBA
+
+## ❤️ 2022
+### I was too late
+I has been started solving aoc problems. I hope that I would be tuned at Dec 2023.
